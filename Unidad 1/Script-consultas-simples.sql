@@ -85,3 +85,56 @@ where Country= 'Spain' or Country= 'Germany'
 
 select Country, city, CompanyName from Customers
 where City = 'Berlin' or Country= 'Norway' or CompanyName like 'G%'
+
+--Seleccionar solo los clientes que no son de España
+
+select * from Customers
+where not Country = 'Spain'
+
+--Seleccionar todos los clientes  que no tengan un precio entre 
+--18 y 20 USD
+
+select * from Products
+where not (UnitPrice >= 18 and UnitPrice <= 20)
+
+select * from Products
+where  UnitPrice not between 18 and 20
+
+
+--Seleccionar todos los clientes que no son de paris o de londres
+
+select CompanyName,City from Customers
+where not (City='Paris' or City ='London') 
+
+select * from Customers
+where  city not in ('Paris', 'London')
+
+--Seleccionar todos los productos que no tienen precios mayores a 30 
+
+select  UnitPrice from Products
+where not UnitPrice > 30
+--Seleccionar todos los produc<tos que no tiene precios menores a 30
+
+select UnitPrice from Products
+where not UnitPrice < 30
+
+
+--Instruccion like
+
+--Seleccionar todos los clientes que comienzan con la letra A
+select Country, city, CompanyName from Customers
+where  CompanyName like 'A%'
+
+--Seleccionar todos los clientes que finalizan con la palabra "es"
+select Country, city, CompanyName from Customers
+where  CompanyName like '%es'
+
+--Seleccionar todos los clientes que contengas la palabra "mer"
+select Country, city, CompanyName from Customers
+where  CompanyName like '%mer%'
+
+--Seleccionar todos los clientes con una Ciudad que comience 
+--con cualquier caracter segido de la palabra ondon(_)
+
+select Country, city, CompanyName from Customers
+where  City like '_ondon'
