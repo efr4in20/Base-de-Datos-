@@ -138,3 +138,52 @@ where  CompanyName like '%mer%'
 
 select Country, city, CompanyName from Customers
 where  City like '_ondon'
+
+--seleccionar todos los clientes con una ciudad que comience 
+--con L y seguido de tres cualquier carecter y que termine con la palabra "on"
+select Country, city, CompanyName from Customers
+where  City like 'L%___%on' 
+
+--selecionar todos los productos que comiencen con la "a" "o" "c" "o" "t"
+select ProductName from Products
+where ProductName like '[act]%'
+
+-- Seleccionar todos los productos que cimiencen de la letra b a la g
+select ProductName from Products
+where ProductName like '[b-g]%'
+
+--Clausula in()
+--Seleccionar todos los clientes de Alemania, España y Reino Unido
+
+select * from Customers
+where Country in ('Germany','Spain','Uk')
+
+select * from Customers
+where Country = 'Germany'
+or Country = 'Spain' or Country = 'UK'
+
+--seleccionar todos los clientes que no son de Alemania, España y UK
+select  country from Customers
+where Country not in ('Germany','Spain','Uk')
+
+select * from Customers
+where not Country = 'Germany'
+or Country = 'Spain' or Country = 'UK'
+
+-- Instruccion between
+-- selecionar todos los productos por un precio entre 10 y 20 USD
+
+select UnitPrice from Products
+where UnitPrice Between 10 and 20
+
+select UnitPrice from Products
+where UnitPrice >= 10 and UnitPrice <= 20
+
+--Alias de Columnas y Alias de Tablas
+
+--Seleccionar el nombre del producto, su stock y su precio
+
+select ProductName as 'Nombre del Producto', UnitPrice as 'Stock', UnitPrice precio from Products
+
+select ProductName, UnitsInStock, p.UnitPrice from Products as p
+inner join [Order Details]as od on p.ProductID= od.ProductID
