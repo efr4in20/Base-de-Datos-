@@ -76,3 +76,40 @@ select COUNT (distinct(Country))as 'Paises' from Customers
 
  --seleccionar el total en dinero que a vendido la empresa 
   select sum (UnitPrice*Quantity) as 'Dinero vendido' from [Order Details]
+
+  --Seleccionar el total de venta de Chang
+
+  select*from [Order Details]
+
+  select sum (UnitPrice*Quantity) as 'Total' from [Order Details]
+ where ProductID = 2
+
+ --Seleccionar el promedio de los precion de los productos
+
+ select AVG ( UnitPrice)  from Products
+ --seleccionar el promedio  total, el total de los productos 41,60 y 31
+
+ select sum (UnitPrice*Quantity) as 'Total', AVG (UnitPrice*Quantity)from [Order Details]
+ where ProductID in (41, 31, 60)
+
+ select sum (UnitPrice*Quantity) as 'Total', AVG (UnitPrice*Quantity)from [Order Details]
+ where ProductID = 41 or ProductID = 31 or ProductID = 60
+
+ -- Seleccionar el numero de ordenes realizadas entre 1996 y 1997
+  select *from Orders
+ select COUNT (*) from Orders
+ where OrderDate >= '1996-01-01' and OrderDate <='1997-12-31'
+
+ select COUNT (*) from Orders
+ where OrderDate between '1996-01-01' and '1997-12-31'
+
+ select year (OrderDate) fROM Orders
+
+ select COUNT (*) from Orders
+ where year (OrderDate) >= '1996' and year(OrderDate) <='1997'
+
+ select COUNT (*) from Orders
+ where year (OrderDate) in ('1996', '1997')
+
+ select count(*) from Orders
+where year(OrderDate)between '1996' and '1997'
