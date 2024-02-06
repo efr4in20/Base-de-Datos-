@@ -113,3 +113,20 @@ select COUNT (distinct(Country))as 'Paises' from Customers
 
  select count(*) from Orders
 where year(OrderDate)between '1996' and '1997'
+
+--instuccion group by 
+--seleccionar el numero por pais agrupados por pais
+select Country, COUNT(*) as 'Grupos 'from Customers
+group by Country
+order by 1 desc
+
+--Seleccionar el numero de ordenes enviadas por el Shippervia
+
+select ShipVia, count (*) as 'NumVia' from Orders
+ group by ShipVia
+
+select s.CompanyName as 'Nombre Compania', count (*) as 'Total'  
+ from Orders as o 
+ inner join Shippers as s on o.ShipVia = s.ShipperID
+ group by s.CompanyName
+ 
