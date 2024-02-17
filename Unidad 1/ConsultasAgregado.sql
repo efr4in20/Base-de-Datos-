@@ -85,7 +85,6 @@ select COUNT (distinct(Country))as 'Paises' from Customers
  where ProductID = 2
 
  --Seleccionar el promedio de los precion de los productos
-
  select AVG ( UnitPrice)  from Products
  --seleccionar el promedio  total, el total de los productos 41,60 y 31
 
@@ -130,3 +129,4 @@ select s.CompanyName as 'Nombre Compania', count (*) as 'Total'
  inner join Shippers as s on o.ShipVia = s.ShipperID
  group by s.CompanyName
  
+ --
