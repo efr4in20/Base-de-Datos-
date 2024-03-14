@@ -113,6 +113,7 @@ on od.OrderID = o.OrderID
 inner join Products as p
 on p.ProductID = od.ProductID
 where ShipCountry in ('Germany','Sweden','France')  
+group by CONCAT( e.FirstName, ' ', e.LastName), p.ProductName
 
 
 -- Total de ordenes enviadas a Francia, alemania y suiza
